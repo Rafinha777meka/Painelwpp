@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Painel de Ban de WhatsApp BY: VITINHO7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      /* Adiciona a centralização */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    input[type=tel] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    .alert {
+      background-color: #f44336;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .alert.show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Banir número de WhatsApp:</h2>
+  <form>
+    <label for="whatsapp">Número de WhatsApp:</label>
+    <input type="tel" id="whatsapp" name="whatsapp">
+    <button onclick="banir()">Banir</button>
+  </form>
+  <div id="alerta" class="alert"></div>
+  <script>
+    function banir() {
+      if (confirm("Tem certeza de que deseja banir o número de WhatsApp?")) {
+        // Adicione aqui o código para banir o número de WhatsApp
+        var numero = document.getElementById("whatsapp").value;
+        document.getElementById("whatsapp").value = "";
+        var alerta = document.getElementById("alerta");
+        alerta.innerHTML = "O número de WhatsApp " + numero + " foi banido.";
+        alerta.classList.add("show");
+        setTimeout(function () {
+          alerta.classList.remove("show");
+        }, 5000);
+        var email = "support@support.whatsapp.com;
+        var assunto = "user violating terms of service using modified versions";
+        var corpo = "Número de WhatsApp ba numero: " + numero + "\nMotivo do banimento: violação dos termos de uso.";
+        var link = "mailto:" + email + "?subject=" + assunto + "&body=" + corpo;
+        window.location.href = link;
+      }
+    }
+  </script>
+</body>
+
+</html>
